@@ -144,7 +144,7 @@ type M = {year:string;title:string;description:string};
 type LP = {m:M;index:number;total:number;color:string;icon:string;isLast:boolean};
 
 // VARIANT 1 — Centered, big icon top, text centered
-function CenteredLayout({m,index,total,color,icon,isLast}:LP) {
+function CenteredLayout({m,index,color,icon,isLast}:LP) {
   return (
     <div className="flex flex-col items-center text-center max-w-xl mx-auto">
       <div className="mb-6 opacity-80"><Icon name={icon} size={48} color={color} /></div>
@@ -184,7 +184,7 @@ function SplitLayout({m,index,total,color,icon,isLast,flip}:LP&{flip:boolean}) {
 }
 
 // VARIANT 3 — Minimal: just big title + thin details, lots of whitespace
-function MinimalLayout({m,index,total,color,icon,isLast}:LP) {
+function MinimalLayout({m,index,color,icon,isLast}:LP) {
   return (
     <div className="max-w-2xl">
       <div className="flex items-center gap-6 mb-8">
