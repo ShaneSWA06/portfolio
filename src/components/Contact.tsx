@@ -1,116 +1,229 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
-const links = [
+const LINKS = [
   {
     label: "Email Me",
-    href: "mailto:shanewintaung@gmail.com",
+    sub: "shanewintaung2006@gmail.com",
+    href: "mailto:shanewintaung2006@gmail.com",
+    icon: "✉",
     primary: true,
-    ariaLabel: "Send Shane an email",
+    color: "#6366f1",
   },
   {
     label: "LinkedIn",
+    sub: "linkedin.com/in/shanewintaung",
     href: "https://linkedin.com/in/shanewintaung",
+    icon: "in",
     primary: false,
-    ariaLabel: "View Shane on LinkedIn",
+    color: "#0ea5e9",
   },
   {
     label: "GitHub",
+    sub: "github.com/ShaneSWA06",
     href: "https://github.com/ShaneSWA06",
+    icon: "⌥",
     primary: false,
-    ariaLabel: "View Shane on GitHub",
+    color: "#a78bfa",
   },
 ];
 
 export default function Contact() {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
   return (
     <section
       id="contact"
-      className="relative py-40 px-6 bg-black overflow-hidden"
+      className="relative overflow-hidden"
+      style={{ background: "#020205", paddingTop: "8rem", paddingBottom: "6rem" }}
       aria-labelledby="contact-heading"
     >
-      {/* Bottom glow */}
-      <motion.div
-        className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full opacity-[0.07] blur-[120px] pointer-events-none"
-        style={{ background: "radial-gradient(circle, #6366f1, #8b5cf6, transparent)" }}
-        animate={{ scale: [1, 1.15, 1], opacity: [0.07, 0.12, 0.07] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        aria-hidden="true"
-      />
+      {/* Top divider line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-rose-500/30" aria-hidden="true" />
 
-      {/* Section top divider */}
+      {/* Large background text */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-rose-500/30"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <span
+          className="font-black text-center leading-none whitespace-nowrap"
+          style={{
+            fontSize: "clamp(80px, 18vw, 220px)",
+            letterSpacing: "-6px",
+            color: "rgba(255,255,255,0.015)",
+          }}
+        >
+          LET'S TALK
+        </span>
+      </div>
+
+      {/* Ambient glow bottom */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 pointer-events-none"
+        style={{
+          width: "80vw",
+          height: "40vh",
+          background: "radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.07), transparent 70%)",
+        }}
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-2xl mx-auto text-center">
+      <div ref={ref} className="relative z-10 max-w-4xl mx-auto px-6">
+
+        {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex items-center justify-center gap-4 mb-8"
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
         >
-          {/* Availability badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 mb-8">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" aria-hidden="true" />
-            <span className="text-green-400 text-xs font-mono tracking-wide">
-              Available · Sep 2026 – Feb 2027
-            </span>
-          </div>
-
-          <p className="text-rose-400 text-xs font-mono tracking-[0.2em] uppercase mb-4">
+          <div className="h-px flex-1 max-w-[80px]" style={{ background: "linear-gradient(to right, transparent, rgba(251,113,133,0.4))" }} />
+          <span className="font-mono text-[11px] tracking-[0.25em] uppercase" style={{ color: "rgba(251,113,133,0.8)" }}>
             Get In Touch
-          </p>
+          </span>
+          <div className="h-px flex-1 max-w-[80px]" style={{ background: "linear-gradient(to left, transparent, rgba(251,113,133,0.4))" }} />
+        </motion.div>
 
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        >
           <h2
             id="contact-heading"
-            className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-5"
+            className="font-black text-white leading-none"
+            style={{ fontSize: "clamp(44px, 8vw, 96px)", letterSpacing: "-3px" }}
           >
-            Let's Work Together
+            Let's Work
+            <span
+              className="block"
+              style={{
+                background: "linear-gradient(135deg, #f43f5e, #fb923c, #fbbf24)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Together
+            </span>
           </h2>
+        </motion.div>
 
-          <p className="text-gray-500 text-base leading-relaxed mb-12 max-w-md mx-auto">
-            I'm looking for an internship where I can contribute, learn fast, and build
-            something meaningful. Based in Singapore, open to hybrid or on-site roles.
-          </p>
-
-          {/* CTA Buttons */}
+        {/* Availability badge */}
+        <motion.div
+          className="flex justify-center mb-12"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.25 }}
+        >
           <div
-            className="flex flex-wrap gap-3 justify-center mb-20"
-            role="list"
-            aria-label="Contact links"
+            className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full"
+            style={{
+              background: "rgba(34,197,94,0.08)",
+              border: "1px solid rgba(34,197,94,0.25)",
+            }}
           >
-            {links.map((link, i) => (
-              <motion.a
-                key={link.label}
-                role="listitem"
-                href={link.href}
-                target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                aria-label={link.ariaLabel}
-                className={
-                  link.primary
-                    ? "px-7 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full text-sm font-semibold transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                    : "px-7 py-3.5 border border-white/10 hover:border-white/25 text-gray-400 hover:text-white rounded-full text-sm font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                }
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: 0.2 + i * 0.08, ease: "easeOut" }}
-                whileHover={{ scale: 1.04, transition: { duration: 0.15 } }}
-                whileTap={{ scale: 0.97 }}
+            <motion.span
+              className="w-2 h-2 rounded-full"
+              style={{ background: "#22c55e" }}
+              animate={{ opacity: [1, 0.3, 1], scale: [1, 0.8, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <span className="text-sm font-medium" style={{ color: "rgba(74,222,128,0.95)" }}>
+              Available for internship · Sep 2026 – Feb 2027
+            </span>
+          </div>
+        </motion.div>
+
+        {/* Sub text */}
+        <motion.p
+          className="text-center text-base leading-relaxed mb-14 max-w-lg mx-auto"
+          style={{ color: "rgba(255,255,255,0.3)" }}
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.35 }}
+        >
+          Looking for a role where I can contribute fast, learn from great people,
+          and build something that actually matters. Based in Singapore — open to hybrid or on-site.
+        </motion.p>
+
+        {/* Contact cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+          {LINKS.map((link, i) => (
+            <motion.a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith("mailto") ? undefined : "_blank"}
+              rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+              className="group relative rounded-2xl overflow-hidden flex flex-col items-center justify-center text-center p-7 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              style={{
+                background: link.primary ? `linear-gradient(135deg, ${link.color}22, ${link.color}0a)` : "#0d0d12",
+                border: `1px solid ${link.primary ? `${link.color}40` : "rgba(255,255,255,0.06)"}`,
+                boxShadow: link.primary ? `0 0 40px ${link.color}12` : "none",
+              }}
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.45 + i * 0.1 }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              {/* Hover top shimmer */}
+              <div
+                className="absolute top-0 inset-x-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: `linear-gradient(to right, transparent, ${link.color}80, transparent)` }}
+                aria-hidden="true"
+              />
+
+              {/* Icon */}
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center text-lg font-bold mb-4 transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  background: `${link.color}18`,
+                  border: `1px solid ${link.color}30`,
+                  color: link.color,
+                  fontFamily: link.icon === "in" ? "serif" : "inherit",
+                }}
               >
-                {link.label}
-              </motion.a>
-            ))}
+                {link.icon}
+              </div>
+
+              <span className="font-semibold text-white text-base mb-1">{link.label}</span>
+              <span className="text-xs font-mono truncate w-full" style={{ color: "rgba(255,255,255,0.25)" }}>
+                {link.sub}
+              </span>
+
+              {/* Arrow */}
+              <span
+                className="absolute top-4 right-4 text-xs opacity-0 group-hover:opacity-100 transition-all duration-200 group-hover:translate-x-0.5"
+                style={{ color: link.color }}
+              >
+                ↗
+              </span>
+            </motion.a>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <motion.div
+          className="flex flex-col items-center gap-4"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          {/* Divider */}
+          <div className="flex items-center gap-4 w-full max-w-sm">
+            <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
+            <span className="text-xs font-mono" style={{ color: "rgba(255,255,255,0.15)" }}>✦</span>
+            <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.06)" }} />
           </div>
 
-          {/* Footer */}
-          <div className="border-t border-white/[0.05] pt-8">
-            <p className="text-gray-700 text-xs font-mono tracking-wide">
-              Designed & built by Shane Wint Aung · React + TypeScript + Framer Motion
-            </p>
-          </div>
+          <p className="font-mono text-xs text-center" style={{ color: "rgba(255,255,255,0.12)" }}>
+            Designed & built by Shane Wint Aung · React + TypeScript + Framer Motion
+          </p>
         </motion.div>
       </div>
     </section>

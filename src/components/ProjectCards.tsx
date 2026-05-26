@@ -22,230 +22,198 @@ const techColors: Record<string, string> = {
   MySQL: "bg-orange-500/10 text-orange-300 border-orange-500/20",
   "HTML/CSS": "bg-rose-500/10 text-rose-300 border-rose-500/20",
   PostgreSQL: "bg-blue-600/10 text-blue-300 border-blue-600/20",
+  "REST APIs": "bg-purple-500/10 text-purple-300 border-purple-500/20",
+  AWS: "bg-yellow-600/10 text-yellow-300 border-yellow-600/20",
+  "Google Translate API": "bg-green-600/10 text-green-300 border-green-600/20",
 };
-
 const defaultTech = "bg-gray-700/40 text-gray-400 border-gray-600/30";
 
 interface ProjectStory {
-  problem: string;
-  process: string;
-  outcome: string;
-  challenge: string;
-  learned: string;
+  problem: string; process: string; outcome: string; challenge: string; learned: string;
 }
-
 const stories: Record<number, ProjectStory> = {
   1: {
-    problem: "Myanmar has a rich literary culture but almost no digital way to discover, read, or track Burmese books. People relied on physical stores or word of mouth.",
-    process: "I designed and built a full-stack library platform from scratch — user authentication, a book catalogue with search and filters, reading progress tracking, and a personalised recommendation engine based on reading history.",
+    problem: "Myanmar has a rich literary culture but almost no digital way to discover, read, or track Burmese books.",
+    process: "Built a full-stack library platform — auth, book catalogue, search, reading progress tracking, and personalised recommendations based on history.",
     outcome: "A fully working web app where users can browse Burmese books, track what they've read, and get recommendations. Built entirely solo.",
-    challenge: "Burmese text rendering was tricky — fonts, encoding, and layout all needed special handling. Most web frameworks don't handle Burmese script well out of the box.",
-    learned: "Full product ownership from database schema to UI polish. Also deepened my understanding of recommendation logic and how to handle non-Latin scripts in web apps.",
+    challenge: "Burmese text rendering — fonts, encoding, and layout all needed special handling. Most frameworks don't handle Burmese script well.",
+    learned: "Full product ownership from DB schema to UI polish. How to handle non-Latin scripts and build recommendation logic.",
   },
   2: {
-    problem: "My mum runs a small grocery store in Myanmar. Billing was done manually — slow, error-prone, and impossible to track inventory accurately across 1000+ items.",
-    process: "Built a POS-style billing app with barcode scanning so items scan in instantly, auto-calculate totals, and update inventory in real time. Made it offline-capable so it works even with unstable internet.",
-    outcome: "The store now processes sales faster, inventory stays accurate, and my mum can see what's running low without manually counting stock. Real impact for a real family.",
-    challenge: "Making it work offline was the hardest part — I had to think carefully about data sync when connectivity came back, and handle edge cases like partial transactions.",
-    learned: "Offline-first architecture, local state management, and what it actually means to build software for someone who isn't a developer. Simplicity of UI matters more than features.",
+    problem: "My mum's grocery store billed manually — slow, error-prone, and impossible to track inventory across 1000+ items.",
+    process: "Built a POS billing app with barcode scanning, real-time inventory updates, and offline capability for unstable internet.",
+    outcome: "The store processes sales faster, inventory stays accurate, and my mum can see stock levels without counting manually.",
+    challenge: "Offline-first architecture — syncing data when connectivity returned and handling partial transactions.",
+    learned: "Offline-first design, local state management, and building for non-developer users where simplicity > features.",
   },
   3: {
-    problem: "My family's business in Myanmar uses KBZPay mobile wallet constantly, but there was no easy way to track transactions, generate reports, or verify receipts — everything was manual.",
-    process: "Started with a simple PWA to log transactions. v2 added Gemini AI to scan receipt photos and auto-extract transaction data via OCR. Added CSV export, multi-language support (English + Burmese), and deployed with Docker on Render.",
-    outcome: "The family now uses it daily. Receipts get scanned in seconds, reports are generated automatically, and everything is backed up. Went from a side project to production software.",
-    challenge: "Getting Gemini's OCR to reliably extract structured data from messy real-world receipt photos — lighting, angles, and handwriting all varied wildly.",
-    learned: "Working with AI APIs in production, Docker deployment pipelines, and the difference between a demo and software people actually rely on every day.",
+    problem: "Family business used KBZPay constantly but had no way to track transactions, generate reports, or verify receipts.",
+    process: "Started as a simple PWA. v2 added Gemini AI OCR for receipt scanning, CSV export, multi-language support, Docker deployment.",
+    outcome: "Family uses it daily. Receipts scanned in seconds, reports auto-generated, everything backed up.",
+    challenge: "Getting Gemini OCR to reliably extract data from messy real-world receipt photos with variable lighting and angles.",
+    learned: "AI APIs in production, Docker pipelines, and the difference between a demo and software people rely on every day.",
   },
   4: {
-    problem: "CleoSpa, a real spa business, was managing appointments, staff schedules, and customer records entirely through WhatsApp and paper. Chaotic and hard to scale.",
-    process: "As part of SP's INC programme, our team met with the client, gathered requirements, designed system diagrams (ERD, use case, sequence), and built a full management system with booking, staff management, and customer profiles.",
-    outcome: "Delivered a working system to a real client on a real deadline. The client could manage bookings, track staff schedules, and maintain customer history — all in one place.",
-    challenge: "This was my first time doing proper client communication. Translating what the client said they wanted vs what they actually needed was harder than the coding itself.",
-    learned: "Requirements gathering, stakeholder communication, and the importance of system design before writing a single line of code. Also: clients change their minds — build flexible.",
+    problem: "CleoSpa managed appointments and staff entirely through WhatsApp and paper.",
+    process: "Met the client, gathered requirements, built full-stack system — TypeScript frontend, JS backend with Prisma ORM, REST APIs for dashboard graphs, Google Translate API, cloud hosted on AWS.",
+    outcome: "Delivered to real client on real deadline. Live dashboard graphs, multi-language support, full booking and staff management.",
+    challenge: "First time doing proper client communication. What they said they wanted vs what they actually needed was harder than the coding.",
+    learned: "Requirements gathering, stakeholder communication, REST API design, third-party API integration, and cloud deployment.",
   },
   5: {
-    problem: "A real organisation needed an intranet tool for conducting and recording vision screening tests for their community programmes. Paper-based records were slow and hard to analyse.",
-    process: "As my Final Year Project, I led the full lifecycle — client discovery, requirements, system architecture, database design, development, testing, and final presentation. Built an intranet web app for screening staff to record test results and generate reports.",
-    outcome: "A complete, tested, and handed-over intranet system. The client could run screening sessions, record results digitally, and export reports for analysis.",
-    challenge: "Balancing client expectations with scope and timeline as a student team was tough. We had to push back on feature requests and prioritise ruthlessly.",
-    learned: "Full software development lifecycle end to end. Project management, client negotiation, and what it takes to deliver something that gets used beyond the classroom.",
+    problem: "Organisation needed an intranet tool for conducting and recording vision screening tests for community programmes.",
+    process: "Led full lifecycle as FYP — client discovery, system architecture, DB design, development, testing, and final handover.",
+    outcome: "Complete, tested, handed-over intranet system. Client can run screening sessions, record results, and export reports.",
+    challenge: "Balancing client expectations with scope and timeline as a student team. Had to push back on feature requests.",
+    learned: "Full software development lifecycle. Project management, client negotiation, and delivering beyond the classroom.",
   },
   6: {
-    problem: "I needed a portfolio that didn't look like every other student's generic template — something that told my actual story and showed I could build things properly.",
-    process: "Built from scratch with React, TypeScript, Framer Motion, and Tailwind. Features a cinematic animated hero, scroll-driven timeline, project cards, and a full skills section. Dark and light mode. Deployed on Vercel.",
-    outcome: "The site you're on right now. It loads fast, looks clean, works on mobile, and actually tells my story rather than just listing skills.",
-    challenge: "Making it feel premium without overcomplicating it. I went through multiple iterations — 3D text experiments, orange fire themes, teal gradients — before landing on something that actually works for a recruiter audience.",
-    learned: "Good design is mostly subtraction. The best version of this site came from removing things, not adding them.",
+    problem: "Needed a portfolio that didn't look like every other student's generic template.",
+    process: "Built from scratch — React, TypeScript, Framer Motion, horizontal scroll timeline, project story modals, dark mode. Deployed on Vercel.",
+    outcome: "The site you're on right now. Fast, clean, tells my actual story.",
+    challenge: "Making it feel premium without overcomplicating. Went through many iterations before landing on something that works for recruiters.",
+    learned: "Good design is subtraction. The best version came from removing things, not adding them.",
   },
 };
 
-const storyLabels = {
-  problem: "The Problem",
-  process: "What I Built",
-  outcome: "The Result",
-  challenge: "Hardest Part",
-  learned: "What I Learned",
+const storyLabels: Record<string, string> = {
+  problem: "The Problem", process: "What I Built",
+  outcome: "The Result", challenge: "Hardest Part", learned: "What I Learned",
 };
-
 const storyIcons: Record<string, string> = {
-  problem: "❓",
-  process: "⚙️",
-  outcome: "✅",
-  challenge: "🔥",
-  learned: "💡",
+  problem: "❓", process: "⚙️", outcome: "✅", challenge: "🔥", learned: "💡",
 };
 
-interface ProjectCardProps {
-  project: Project;
-  index: number;
-  onOpen: (project: Project) => void;
-}
+// Bento accent colors per project
+const accentColors: Record<number, string> = {
+  1: "#a855f7", 2: "#34d399", 3: "#06b6d4",
+  4: "#f97316", 5: "#818cf8", 6: "#fb7185",
+};
+
+const allProjects: Project[] = [
+  { id: 1, title: "larlarbook", description: "Full-stack digital library platform for Burmese books with reading progress tracking and personalised recommendations.", tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Prisma"], github: "https://github.com/ShaneSWA06/larlarbook" },
+  { id: 2, title: "Grocery Billing System", description: "Offline-capable POS billing app with barcode scanning and Supabase-backed inventory for my mum's store in Myanmar.", tech: ["React", "Node.js", "Supabase", "TypeScript"], github: "https://github.com/ShaneSWA06" },
+  { id: 3, title: "KBZPay Transaction Tracker", description: "PWA for tracking mobile wallet transactions. v2 adds Gemini AI OCR, CSV backups, multi-language support, Docker deployment.", tech: ["TypeScript", "Prisma", "Neon DB", "Gemini API", "Docker", "Render"], github: "https://github.com/ShaneSWA06" },
+  { id: 4, title: "CleoSpa Management App", description: "Full spa management system for a real client — TypeScript frontend, JS backend, REST APIs, Google Translate, AWS hosting.", tech: ["TypeScript", "JavaScript", "Prisma ORM", "MySQL", "REST APIs", "Google Translate API", "AWS", "HTML/CSS"], github: "https://github.com/ShaneSWA06" },
+  { id: 5, title: "Vision Screening System", description: "FYP intranet system for a real client. Full lifecycle from client discovery and system design to tested delivery.", tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Prisma"], github: "https://github.com/ShaneSWA06" },
+  { id: 6, title: "Portfolio Website", description: "This site — horizontal scroll timeline, story modals, Framer Motion animations. Deployed on Vercel.", tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Vercel"], github: "https://github.com/ShaneSWA06/portfolio", demo: "https://portfolio-shaneswa06s-projects.vercel.app" },
+];
 
 export default function ProjectCards() {
   const [selected, setSelected] = useState<Project | null>(null);
-
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: "larlarbook",
-      description: "Full-stack digital library platform for Burmese books with reading progress tracking and personalised recommendations.",
-      tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Prisma"],
-      github: "https://github.com/ShaneSWA06/larlarbook",
-    },
-    {
-      id: 2,
-      title: "Grocery Billing System",
-      description: "Offline-capable POS billing app with barcode scanning and Supabase-backed inventory for my mum's store in Myanmar.",
-      tech: ["React", "Node.js", "Supabase", "TypeScript"],
-      github: "https://github.com/ShaneSWA06",
-    },
-    {
-      id: 3,
-      title: "KBZPay Transaction Tracker",
-      description: "PWA for tracking mobile wallet transactions. v2 adds Gemini AI OCR, CSV backups, multi-language support, Docker deployment.",
-      tech: ["TypeScript", "Prisma", "Neon DB", "Gemini API", "Docker", "Render"],
-      github: "https://github.com/ShaneSWA06",
-    },
-    {
-      id: 4,
-      title: "CleoSpa Management App",
-      description: "Full spa management system built for a real client under SP's INC programme — bookings, staff, and customer management.",
-      tech: ["TypeScript", "JavaScript", "Prisma ORM", "MySQL", "REST APIs", "Google Translate API", "AWS", "HTML/CSS"],
-      github: "https://github.com/ShaneSWA06",
-    },
-    {
-      id: 5,
-      title: "Vision Screening System",
-      description: "Final Year Project — intranet vision screening system built for a real client. Full lifecycle from discovery to delivery.",
-      tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Prisma"],
-      github: "https://github.com/ShaneSWA06",
-    },
-    {
-      id: 6,
-      title: "Portfolio Website",
-      description: "This site — scroll-driven animated portfolio with dark/light mode, Framer Motion animations, and a full journey timeline.",
-      tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Vercel"],
-      github: "https://github.com/ShaneSWA06/portfolio",
-      demo: "https://portfolio-shaneswa06s-projects.vercel.app",
-    },
-  ];
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="projects" className="relative py-32 px-6 bg-black" aria-labelledby="projects-heading">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-indigo-500/40" aria-hidden="true" />
+    <section id="projects" className="relative py-32 px-6" style={{ background: "#020205" }} aria-labelledby="projects-heading">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-indigo-500/30" aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
+        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <p className="text-indigo-400 text-xs font-mono tracking-[0.2em] uppercase mb-4">What I Built</p>
           <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold text-white tracking-tight">Projects</h2>
-          <p className="mt-4 text-gray-500 text-base max-w-md mx-auto leading-relaxed">
-            Click any project to read the full story.
-          </p>
+          <p className="mt-4 text-gray-500 text-sm max-w-sm mx-auto">Click any project to read the full story.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} onOpen={setSelected} />
-          ))}
+        {/* Bento grid */}
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-auto">
+
+          {/* Row 1: larlarbook FEATURED wide (4 cols) + KBZPay tall (2 cols) */}
+          <BentoCard project={allProjects[0]} index={0} inView={inView} span="md:col-span-4" onOpen={setSelected} featured />
+          <BentoCard project={allProjects[2]} index={2} inView={inView} span="md:col-span-2" onOpen={setSelected} />
+
+          {/* Row 2: Grocery Billing (2 cols) + CleoSpa FEATURED wide (4 cols) */}
+          <BentoCard project={allProjects[1]} index={1} inView={inView} span="md:col-span-2" onOpen={setSelected} />
+          <BentoCard project={allProjects[3]} index={3} inView={inView} span="md:col-span-4" onOpen={setSelected} featured />
+
+          {/* Row 3: Vision Screening (3 cols) + Portfolio (3 cols) */}
+          <BentoCard project={allProjects[4]} index={4} inView={inView} span="md:col-span-3" onOpen={setSelected} />
+          <BentoCard project={allProjects[5]} index={5} inView={inView} span="md:col-span-3" onOpen={setSelected} />
         </div>
       </div>
 
-      {/* Story Modal */}
       <AnimatePresence>
-        {selected && (
-          <StoryModal project={selected} onClose={() => setSelected(null)} />
-        )}
+        {selected && <StoryModal project={selected} onClose={() => setSelected(null)} />}
       </AnimatePresence>
     </section>
   );
 }
 
-function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+function BentoCard({ project, index, inView, span, onOpen, featured = false }:
+  { project: Project; index: number; inView: boolean; span: string; onOpen: (p: Project) => void; featured?: boolean }) {
+  const accent = accentColors[project.id] ?? "#6366f1";
 
   return (
     <motion.article
-      ref={ref}
-      className="group relative flex flex-col bg-[#0d0d0d] border border-white/[0.06] rounded-2xl p-7 overflow-hidden cursor-pointer"
-      initial={{ opacity: 0, y: 32 }}
+      className={`group relative flex flex-col rounded-2xl overflow-hidden cursor-pointer ${span}`}
+      style={{
+        background: "#0d0d12",
+        border: `1px solid rgba(255,255,255,0.06)`,
+        minHeight: featured ? 280 : 220,
+      }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.55, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-      whileHover={{ y: -6, transition: { duration: 0.2, ease: "easeOut" } }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
       onClick={() => onOpen(project)}
-      role="button"
-      tabIndex={0}
-      aria-label={`Read the story behind ${project.title}`}
-      onKeyDown={(e) => e.key === "Enter" && onOpen(project)}
+      role="button" tabIndex={0} aria-label={`Read story behind ${project.title}`}
+      onKeyDown={e => e.key === "Enter" && onOpen(project)}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-purple-500/0 group-hover:from-indigo-500/[0.04] group-hover:to-purple-500/[0.04] transition-all duration-500 rounded-2xl" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-indigo-500/0 to-transparent group-hover:via-indigo-500/60 transition-all duration-300" />
+      {/* Accent top bar */}
+      <div className="absolute top-0 inset-x-0 h-[2px]" style={{ background: `linear-gradient(to right, ${accent}80, ${accent}20, transparent)` }} />
 
-      <div className="relative z-10 flex flex-col h-full">
-        <span className="text-[4rem] font-black leading-none text-white/[0.04] group-hover:text-white/[0.07] transition-colors duration-300 select-none mb-3" aria-hidden="true">
-          {String(project.id).padStart(2, "0")}
-        </span>
+      {/* Hover glow */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+        style={{ background: `radial-gradient(ellipse 70% 60% at 30% 40%, ${accent}08, transparent)` }} />
 
-        <h3 className="text-white font-semibold text-lg leading-snug mb-2 group-hover:text-indigo-200 transition-colors duration-200">
+      <div className="relative z-10 flex flex-col h-full p-6">
+        {/* Number + accent dot */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="font-mono text-[10px] tracking-[0.2em]" style={{ color: `${accent}80` }}>
+            {String(project.id).padStart(2, "0")}
+          </span>
+          <div className="w-2 h-2 rounded-full opacity-60" style={{ background: accent }} />
+        </div>
+
+        {/* Title */}
+        <h3 className={`font-bold text-white leading-tight mb-2 group-hover:opacity-90 transition-opacity ${featured ? "text-2xl" : "text-lg"}`}>
           {project.title}
         </h3>
 
-        <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-1">{project.description}</p>
+        {/* Description — show more on featured */}
+        <p className="text-gray-500 text-sm leading-relaxed flex-1 mb-4"
+          style={{ WebkitLineClamp: featured ? 3 : 2, display: "-webkit-box", WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+          {project.description}
+        </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-5" role="list" aria-label="Technologies used">
-          {project.tech.map((t) => (
-            <span key={t} role="listitem" className={`text-[11px] px-2.5 py-1 rounded-full border font-medium tracking-wide ${techColors[t] ?? defaultTech}`}>
-              {t}
-            </span>
+        {/* Tech chips */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.tech.slice(0, featured ? 6 : 4).map(t => (
+            <span key={t} className={`text-[10px] px-2 py-0.5 rounded-full border font-medium ${techColors[t] ?? defaultTech}`}>{t}</span>
           ))}
+          {project.tech.length > (featured ? 6 : 4) && (
+            <span className="text-[10px] px-2 py-0.5 rounded-full border font-medium" style={{ color: `${accent}80`, borderColor: `${accent}20`, background: `${accent}08` }}>
+              +{project.tech.length - (featured ? 6 : 4)}
+            </span>
+          )}
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-white/[0.05]">
-          <span className="text-xs text-indigo-400/70 group-hover:text-indigo-400 transition-colors duration-200 font-mono">
-            Read the story →
+        {/* Footer */}
+        <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: "rgba(255,255,255,0.05)" }}>
+          <span className="text-xs font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: accent }}>
+            Read story →
           </span>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-gray-500 hover:text-white transition-colors duration-200"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`View ${project.title} on GitHub`}>
-                GitHub ↗
-              </a>
+                className="text-xs text-gray-600 hover:text-white transition-colors"
+                onClick={e => e.stopPropagation()}>GitHub ↗</a>
             )}
             {project.demo && (
               <a href={project.demo} target="_blank" rel="noopener noreferrer"
-                className="text-xs text-indigo-400 hover:text-indigo-300 transition-colors duration-200"
-                onClick={(e) => e.stopPropagation()}
-                aria-label={`View live demo of ${project.title}`}>
-                Live ↗
-              </a>
+                className="text-xs transition-colors hover:opacity-80"
+                style={{ color: accent }}
+                onClick={e => e.stopPropagation()}>Live ↗</a>
             )}
           </div>
         </div>
@@ -256,68 +224,40 @@ function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
 
 function StoryModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const story = stories[project.id];
+  const accent = accentColors[project.id] ?? "#6366f1";
 
   return (
-    <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.2 }}
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label={`Story behind ${project.title}`}
-    >
-      {/* Backdrop */}
+    <motion.div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}
+      onClick={onClose} role="dialog" aria-modal="true">
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-
-      {/* Modal */}
       <motion.div
-        className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-[#0a0a0f] border border-white/[0.08] rounded-2xl shadow-2xl"
-        initial={{ opacity: 0, y: 32, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 16, scale: 0.98 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        onClick={(e) => e.stopPropagation()}
+        className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl"
+        style={{ background: "#0a0a0f", border: "1px solid rgba(255,255,255,0.08)" }}
+        initial={{ opacity: 0, y: 32, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 16, scale: 0.98 }} transition={{ duration: 0.3, ease: [0.16,1,0.3,1] }}
+        onClick={e => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="sticky top-0 z-10 bg-[#0a0a0f] border-b border-white/[0.06] px-7 py-5 flex items-start justify-between gap-4">
+        <div className="h-[2px] w-full rounded-t-2xl" style={{ background: `linear-gradient(to right, ${accent}, ${accent}40, transparent)` }} />
+        <div className="sticky top-0 bg-[#0a0a0f] border-b border-white/[0.06] px-7 py-5 flex items-start justify-between gap-4">
           <div>
-            <p className="text-indigo-400 text-xs font-mono tracking-[0.2em] uppercase mb-1">Project Story</p>
-            <h2 className="text-white font-bold text-xl leading-tight">{project.title}</h2>
+            <p className="text-xs font-mono tracking-[0.2em] uppercase mb-1" style={{ color: accent }}>Project Story</p>
+            <h2 className="text-white font-bold text-xl">{project.title}</h2>
           </div>
-          <button
-            onClick={onClose}
-            className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-            aria-label="Close story"
-          >
-            ✕
-          </button>
+          <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-white hover:bg-white/[0.06] transition-colors focus-visible:outline-none" aria-label="Close">✕</button>
         </div>
-
-        {/* Tech stack */}
         <div className="px-7 py-4 border-b border-white/[0.06] flex flex-wrap gap-2">
-          {project.tech.map((t) => (
-            <span key={t} className={`text-[11px] px-2.5 py-1 rounded-full border font-medium ${techColors[t] ?? defaultTech}`}>
-              {t}
-            </span>
+          {project.tech.map(t => (
+            <span key={t} className={`text-[11px] px-2.5 py-1 rounded-full border font-medium ${techColors[t] ?? defaultTech}`}>{t}</span>
           ))}
         </div>
-
-        {/* Story sections */}
         {story ? (
-          <div className="px-7 py-6 space-y-7">
+          <div className="px-7 py-6 space-y-6">
             {(Object.keys(storyLabels) as (keyof ProjectStory)[]).map((key, i) => (
-              <motion.div
-                key={key}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: i * 0.07 }}
-              >
+              <motion.div key={key} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: i * 0.06 }}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-base" aria-hidden="true">{storyIcons[key]}</span>
-                  <h3 className="text-white/90 font-semibold text-sm tracking-wide">{storyLabels[key]}</h3>
+                  <span className="text-base">{storyIcons[key]}</span>
+                  <h3 className="text-white/90 font-semibold text-sm">{storyLabels[key]}</h3>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed pl-6">{story[key]}</p>
               </motion.div>
@@ -326,19 +266,17 @@ function StoryModal({ project, onClose }: { project: Project; onClose: () => voi
         ) : (
           <div className="px-7 py-12 text-center text-gray-600 text-sm">Story coming soon.</div>
         )}
-
-        {/* Footer links */}
-        <div className="px-7 py-5 border-t border-white/[0.06] flex gap-4">
+        <div className="px-7 py-5 border-t border-white/[0.06] flex gap-3">
           {project.github && (
             <a href={project.github} target="_blank" rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-300 border border-white/10 hover:border-white/25 hover:text-white transition-all duration-200">
-              View on GitHub ↗
+              className="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-300 border border-white/10 hover:border-white/25 hover:text-white transition-all">
+              GitHub ↗
             </a>
           )}
           {project.demo && (
             <a href={project.demo} target="_blank" rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200"
-              style={{ background: "linear-gradient(135deg,rgba(99,102,241,0.95),rgba(139,92,246,0.95))" }}>
+              className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all"
+              style={{ background: `linear-gradient(135deg, ${accent}ee, ${accent}99)` }}>
               Live Demo ↗
             </a>
           )}
