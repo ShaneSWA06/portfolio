@@ -144,7 +144,7 @@ type M = {year:string;title:string;description:string};
 type LP = {m:M;index:number;total:number;color:string;icon:string;isLast:boolean};
 
 // VARIANT 1 — Centered, big icon top, text centered
-function CenteredLayout({m,index,color,icon,isLast}:LP) {
+function CenteredLayout({m,index,total,color,icon,isLast}:LP) {
   return (
     <div className="flex flex-col items-center text-center max-w-xl mx-auto">
       <div className="mb-6 opacity-80"><Icon name={icon} size={48} color={color} /></div>
@@ -208,7 +208,7 @@ function MinimalLayout({m,index,color,icon,isLast}:LP) {
 }
 
 // VARIANT 4 — Bold: massive title dominates, year small, desc small
-function BoldLayout({m,index,total,color,icon,isLast}:LP) {
+function BoldLayout({m,index,color,icon,isLast}:LP) {
   return (
     <div className="max-w-3xl">
       <div className="flex items-center gap-3 mb-4">
