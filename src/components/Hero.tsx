@@ -104,6 +104,10 @@ export default function Hero() {
           <motion.div className="flex flex-wrap items-center gap-3" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.85 }}>
             <a href="https://github.com/ShaneSWA06" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]" style={{ background: "#ffffff", color: "#0a0a0f" }}>View GitHub</a>
             <a href="https://linkedin.com/in/shanewintaung" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-[1.02]" style={{ color: "#ffffff", border: "1px solid rgba(255,255,255,0.08)" }}>LinkedIn</a>
+            <a href="/Shane_Wint_Aung_Resume.pdf" download className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-[1.02] hover:border-white/20" style={{ color: "rgba(255,255,255,0.7)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download CV
+            </a>
             <a href="#timeline" className="px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-[1.02]" style={{ color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.08)" }} onClick={e => { e.preventDefault(); document.getElementById("timeline")?.scrollIntoView({ behavior: "smooth" }); }}>See My Work ↓</a>
           </motion.div>
 
