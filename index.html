@@ -5,7 +5,13 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>my-timeline-portfolio</title>
-  </head>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+    <style>
+    spline-viewer::part(logo) { display: none !important; }
+    spline-viewer::part(watermark) { display: none !important; }
+    a[href*="spline.design"] { display: none !important; }
+  </style>
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

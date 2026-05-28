@@ -9,7 +9,7 @@ const LINKS = [
     href: "mailto:shanewintaung2006@gmail.com",
     icon: "✉",
     primary: true,
-    color: "#6366f1",
+    color: "#22c55e",
   },
   {
     label: "LinkedIn",
@@ -17,7 +17,7 @@ const LINKS = [
     href: "https://linkedin.com/in/shanewintaung",
     icon: "in",
     primary: false,
-    color: "#0ea5e9",
+    color: "rgba(255,255,255,0.7)",
   },
   {
     label: "GitHub",
@@ -25,7 +25,7 @@ const LINKS = [
     href: "https://github.com/ShaneSWA06",
     icon: "⌥",
     primary: false,
-    color: "#a78bfa",
+    color: "rgba(255,255,255,0.5)",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function Contact() {
     <section
       id="contact"
       className="relative overflow-hidden"
-      style={{ background: "#020205", paddingTop: "8rem", paddingBottom: "6rem" }}
+      style={{ background: "#0a0a0f", paddingTop: "8rem", paddingBottom: "6rem" }}
       aria-labelledby="contact-heading"
     >
       {/* Top divider line */}
@@ -66,7 +66,7 @@ export default function Contact() {
         style={{
           width: "80vw",
           height: "40vh",
-          background: "radial-gradient(ellipse at 50% 100%, rgba(99,102,241,0.07), transparent 70%)",
+          background: "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.02), transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -80,11 +80,11 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
         >
-          <div className="h-px flex-1 max-w-[80px]" style={{ background: "linear-gradient(to right, transparent, rgba(251,113,133,0.4))" }} />
-          <span className="font-mono text-[11px] tracking-[0.25em] uppercase" style={{ color: "rgba(251,113,133,0.8)" }}>
+          <div className="h-px flex-1 max-w-[80px]" style={{ background: "linear-gradient(to right, transparent, rgba(255,255,255,0.12))" }} />
+          <span className="font-mono text-[11px] tracking-[0.25em] uppercase" style={{ color: "rgba(255,255,255,0.35)" }}>
             Get In Touch
           </span>
-          <div className="h-px flex-1 max-w-[80px]" style={{ background: "linear-gradient(to left, transparent, rgba(251,113,133,0.4))" }} />
+          <div className="h-px flex-1 max-w-[80px]" style={{ background: "linear-gradient(to left, transparent, rgba(255,255,255,0.12))" }} />
         </motion.div>
 
         {/* Heading */}
@@ -103,7 +103,7 @@ export default function Contact() {
             <span
               className="block"
               style={{
-                background: "linear-gradient(135deg, #f43f5e, #fb923c, #fbbf24)",
+                background: "rgba(255,255,255,1)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",

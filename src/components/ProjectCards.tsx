@@ -67,6 +67,13 @@ const stories: Record<number, ProjectStory> = {
     challenge: "Balancing client expectations with scope and timeline as a student team. Had to push back on feature requests.",
     learned: "Full software development lifecycle. Project management, client negotiation, and delivering beyond the classroom.",
   },
+  7: {
+    problem: "larlarbook needed a mobile app so Burmese readers could discover, read, and track books on their phones — the web platform alone was not enough.",
+    process: "Currently developing the full mobile app in Expo (React Native) to match a 73-screen Figma design created by the team. Building 5 tab screens (home, library, search, write, profile) plus an in-app epub reader. Stack: TypeScript, Expo Router, Supabase, react-native-reanimated, epubjs-react-native.",
+    outcome: "Work in progress — started development yesterday. Auth screens are complete, tab navigation is set up, and screens are being implemented one by one to match the Figma designs exactly.",
+    challenge: "Translating a detailed 73-screen Figma design into pixel-accurate React Native components — spacing, typography, and Burmese script rendering all need careful attention on mobile.",
+    learned: "Mobile-first development with Expo Router, working from a team Figma design as the source of truth, and integrating an epub reader for real book content.",
+  },
   6: {
     problem: "Needed a portfolio that didn't look like every other student's generic template.",
     process: "Built from scratch — React, TypeScript, Framer Motion, horizontal scroll timeline, project story modals, dark mode. Deployed on Vercel.",
@@ -96,6 +103,7 @@ const allProjects: Project[] = [
   { id: 3, title: "KBZPay Transaction Tracker", description: "PWA for tracking mobile wallet transactions. v2 adds Gemini AI OCR, CSV backups, multi-language support, Docker deployment.", tech: ["TypeScript", "Prisma", "Neon DB", "Gemini API", "Docker", "Render"], github: "https://github.com/ShaneSWA06" },
   { id: 4, title: "CleoSpa Management App", description: "Full spa management system for a real client — TypeScript frontend, JS backend, REST APIs, Google Translate, AWS hosting.", tech: ["TypeScript", "JavaScript", "Prisma ORM", "MySQL", "REST APIs", "Google Translate API", "AWS", "HTML/CSS"], github: "https://github.com/ShaneSWA06" },
   { id: 5, title: "Vision Screening System", description: "FYP intranet system for a real client. Full lifecycle from client discovery and system design to tested delivery.", tech: ["TypeScript", "React", "Node.js", "PostgreSQL", "Prisma"], github: "https://github.com/ShaneSWA06" },
+  { id: 7, title: "larlarbook — Mobile App", description: "Currently building the mobile app in Expo (React Native) to match a 73-screen Figma design — home, library, search, write, profile, and epub reader tabs. Supabase backend, Expo Router navigation.", tech: ["Expo", "React Native", "TypeScript", "Supabase", "Expo Router", "Figma"], github: "https://github.com/LarLar-Books/LarLarReady", demo: "https://www.figma.com/design/fb74B6Rgxy1uKbXtL9170d/LrLr-Books-App-Mobile" },
   { id: 6, title: "Portfolio Website", description: "This site — horizontal scroll timeline, story modals, Framer Motion animations. Deployed on Vercel.", tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Vercel"], github: "https://github.com/ShaneSWA06/portfolio", demo: "https://portfolio-shaneswa06s-projects.vercel.app" },
 ];
 
@@ -105,7 +113,7 @@ export default function ProjectCards() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="projects" className="relative py-32 px-6" style={{ background: "#020205" }} aria-labelledby="projects-heading">
+    <section id="projects" className="relative py-32 px-6" style={{ background: "#0a0a0f" }} aria-labelledby="projects-heading">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-indigo-500/30" aria-hidden="true" />
 
       <div className="max-w-6xl mx-auto">
@@ -126,9 +134,10 @@ export default function ProjectCards() {
           <BentoCard project={allProjects[1]} index={1} inView={inView} span="md:col-span-2" onOpen={setSelected} />
           <BentoCard project={allProjects[3]} index={3} inView={inView} span="md:col-span-4" onOpen={setSelected} featured />
 
-          {/* Row 3: Vision Screening (3 cols) + Portfolio (3 cols) */}
-          <BentoCard project={allProjects[4]} index={4} inView={inView} span="md:col-span-3" onOpen={setSelected} />
-          <BentoCard project={allProjects[5]} index={5} inView={inView} span="md:col-span-3" onOpen={setSelected} />
+          {/* Row 3: Vision Screening (2 cols) + UI/UX (2 cols) + Portfolio (2 cols) */}
+          <BentoCard project={allProjects[4]} index={4} inView={inView} span="md:col-span-2" onOpen={setSelected} />
+          <BentoCard project={allProjects[6]} index={6} inView={inView} span="md:col-span-2" onOpen={setSelected} featured />
+          <BentoCard project={allProjects[5]} index={5} inView={inView} span="md:col-span-2" onOpen={setSelected} />
         </div>
       </div>
 

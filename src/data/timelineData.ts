@@ -57,6 +57,11 @@ export const milestones: Milestone[] = [
     description: "Final Year Project — intranet vision screening system for a real client. Full lifecycle from client meetings and system design to tested delivery.",
   },
   {
+    year: "2026 — Now",
+    title: "larlarbook Mobile App",
+    description: "Currently building the larlarbook mobile app in Expo — 5 tabs, epub reader, Supabase backend. Implementing pixel-accurate screens from a 73-screen Figma design created by the team.",
+  },
+  {
     year: "Sep 2026",
     title: "Open to Internships",
     description: "Available for internship from Sep 2026 to Feb 2027. Looking for a full-stack or frontend developer role where I can contribute and grow fast.",
