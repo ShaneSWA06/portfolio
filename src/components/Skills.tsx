@@ -18,14 +18,14 @@ const GROUPS: SkillGroup[] = [
     color: "#818cf8",
     percent: 78,
     level: "Confident",
-    note: "Build production UIs — TypeScript, React, Tailwind, Framer Motion",
+    note: "Build production UIs and design in Figma — TypeScript, React, Tailwind, UI/UX",
     skills: [
       { name: "TypeScript", percent: 82 },
       { name: "React.js", percent: 78 },
       { name: "HTML & CSS", percent: 88 },
       { name: "Tailwind CSS", percent: 80 },
       { name: "Framer Motion", percent: 65 },
-      { name: "UI/UX Design", percent: 60 },
+      { name: "UI/UX Design", percent: 72 },
     ],
   },
   {
@@ -71,7 +71,7 @@ const GROUPS: SkillGroup[] = [
       { name: "Git & GitHub", percent: 85 },
       { name: "Docker", percent: 68 },
       { name: "Vercel", percent: 80 },
-      { name: "Figma", percent: 62 },
+      { name: "Figma", percent: 75 },
       { name: "Postman", percent: 78 },
       { name: "Linux CLI", percent: 65 },
     ],
@@ -87,7 +87,7 @@ const LEVEL_COLOR: Record<string, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-32 px-6" style={{ background: "#020205" }} aria-labelledby="skills-heading">
+    <section id="skills" className="relative py-32 px-6" style={{ background: "#0a0a0f" }} aria-labelledby="skills-heading">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent to-purple-500/30" aria-hidden="true" />
 
       <div className="max-w-5xl mx-auto">
@@ -98,7 +98,7 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-purple-400 text-xs font-mono tracking-[0.2em] uppercase mb-4">What I Know</p>
+          <p className="text-xs font-mono tracking-[0.2em] uppercase mb-4" style={{color:"rgba(255,255,255,0.35)"}}>What I Know</p>
           <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold text-white tracking-tight">Skills</h2>
           <p className="mt-4 text-gray-500 text-sm max-w-xs mx-auto">Honest levels — built from real projects, not tutorials.</p>
         </motion.div>
